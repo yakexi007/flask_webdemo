@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+{% block html %}
+    <!--div class="form-inline" style="margin-left: 5%;margin-top:30px;">
+    <input class="form-control" id="s_ip" placeholder="ip">
+    <button class="btn btn-primary" onclick="sModel()">查询</button>
+ </div-->
+
+    <div id="container" style="height:450px;width: 50%;float:left;margin-top: 50px"></div>
+    <div id="container1" style="height:450px;width: 50%;float: left;margin-top: 50px;"></div>
+
+<script type="application/javascript">
+
+    $(function () {
+        Highcharts.setOptions({
+	global: {
+		useUTC: false
+	}
+});
+
+    $('#container').highcharts({
+        chart: {
+            zoomType: 'x'
+        },
+        title: {
+            text: '{{ ip }}流量图'
+        },
+        subtitle: {
+            text: document.ontouchstart === undefined ?
+                    '1天流量走势图' :
+                    'Pinch the chart to zoom in'
+        },
+        xAxis: {
+            type: 'datetime',
+        },
+        yAxis: {
+            title: {
+                text: 'MB'
+            }
+        },
+        credits: {
+            enabled: true,
+            text: "By 运维组",
+            style: {                     //样式
+                color: 'red',
+                fontSize: '15px'
+            }
+        },
+        series: [{
+            type: 'area',
+            name: 'out',
+            //pointInterval: 24 * 3600 * 1000,
+            //pointStart: Date.UTC(2015, 7, 6),
+            data: [
+                {% for x in data[0] %}
+                    [{{ x.0 }},{{ x.1 }}],
+                {% endfor %}
+            ]
+        },{
+            type:'area',
+            name:'in',
+            data:[
+                {% for x in data[0] %}
+                    [{{ x.0 }},{{ x.2 }}],
+                {% endfor %}
+            ]
+        }]
+    });
+
+    $(function () {
+    $('#container1').highcharts({
+        title: {
+            text: '昨日总请求数',
+            x: -20 //center
+        },
+        subtitle: {
+            text: 'Source: Mongodb',
+            x: -20
+        },
+        xAxis: {
+            type: 'datetime',
+        },
+        yAxis: {
+            title: {
+                text: '总数'
+            },
+            plotLines: [{
+                value: 0,
+                width: 1,
+                color: '#808080'
+            }]
+        },
+        tooltip: {
+            valueSuffix: '个'
+        },
+        credits: {
+            enabled: true,
+            text: "By 运维组",
+            style: {                     //样式
+                color: 'red',
+                fontSize: '15px'
+            }
+        },
+        series: [{
+            name: '{{ ip }}',
+            data: [
+                {% for x in data.1 %}
+                    [{{ x.0 }},{{ x.1 }}],
+                {% endfor %}
+            ]
+        }]
+    });
+});
+    });
+</script>
+{% endblock %}

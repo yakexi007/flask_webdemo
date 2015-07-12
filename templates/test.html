@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<head>
+    <meta charset="UTF-8">
+    <script src="../../static/jquery-2.1.4.min.js"></script>
+    <script src="../../static/bootstrap.min.js"></script>
+    <script src="../../static/Highcharts/js/highcharts.js"></script>
+    <link href="../../static/bootstrap.min.css" rel="stylesheet">
+    <title>运维平台</title>
+</head>
+</head>
+<body>
+<div id-="a"></div>
+<button id="demo" onclick="xxxx()">click</button>
+</body>
+<script type="application/javascript">
+    function xxxx() {
+        $.ajax({
+            type: 'POST',
+            url: '/123/',
+            data: JSON.stringify({'name':'jiaoshou'}),
+            contentType: "application/json; charset=utf-8",
+            datatype: 'json',
+            success: function (data) {
+                alert(data['name']);
+            }
+        });
+    }
+</script>
+</html>
