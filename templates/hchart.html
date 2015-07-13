@@ -26,11 +26,11 @@
         },
         subtitle: {
             text: document.ontouchstart === undefined ?
-                    '1天流量走势图' :
+                    '1周流量走势图' :
                     'Pinch the chart to zoom in'
         },
         xAxis: {
-            type: 'datetime',
+            type: 'datetime'
         },
         yAxis: {
             title: {
@@ -55,10 +55,11 @@
                     [{{ x.0 }},{{ x.1 }}],
                 {% endfor %}
             ]
-        },{
-            type:'area',
-            name:'in',
-            data:[
+        },
+        {
+            type: 'area',
+            name: 'in',
+            data: [
                 {% for x in data[0] %}
                     [{{ x.0 }},{{ x.2 }}],
                 {% endfor %}
@@ -101,7 +102,7 @@
             }
         },
         series: [{
-            name: '{{ ip }}',
+            name: 'connects',
             data: [
                 {% for x in data.1 %}
                     [{{ x.0 }},{{ x.1 }}],
