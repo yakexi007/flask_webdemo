@@ -7,12 +7,13 @@ function mModel(ip,n_ip,status) {
     $('#mModal').modal();
     $('#mip').val(ip);
     $('#mn_ip').val(n_ip);
-    $('#mstatus').val(status);
+    //$('#mstatus').val(status);
 }
 
 function modModel() {
     var ip = $('#mip').val();
-    var status = $('#mstatus').val();
+    //var status = $('#mstatus').val();
+    var status = $('#xx option:selected') .val();
     window.location.href = "/mod?ip=" + ip + "&status=" + status;
 }
 

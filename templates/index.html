@@ -135,13 +135,24 @@
           <input id="mn_ip" type="text" class="form-control" placeholder="n_ip" readonly="true">
       </div>
        <br>
-      <div class="input-group">
-          <span class="input-group-addon">状态</span>
-         <input id="mstatus" type="text" class="form-control">
-      </div>
-          </form>
+
+        <div style="width: 10%;float: left;">
+            <span class="btn btn-danger">状态</span>
+        </div>
+        <div style="width: 90%;float: left">
+            <select id="xx" class="form-control">
+            <option value="">请选择
+            <option value="1">上线
+            <option value="2">下线
+            </select>
+         </div>
+       </form>
+         <!--input id="mstatus" type="text" class="form-control"-->
+
+
 
          </div>
+          <br>
          <div class="modal-footer">
             <button type="button" class="btn btn-default"
                data-dismiss="modal">关闭

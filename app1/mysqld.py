@@ -24,7 +24,9 @@ def delData(ip):
     cur.execute(sql)
 
 def modData(ip,status):
-    sql = "update download_nginx_copy set status = '%s' where ip = '%s';" %(status,ip)
+    sql = "update download_nginx_copy set status = '%s' where ip = '%s';" %('unactive',ip)
+    if status == "1":
+        sql = "update download_nginx_copy set status = '%s' where ip = '%s';" %('active',ip)
     cur.execute(sql)
 
 def addData(ip,n_ip,c_room,operator,status):
