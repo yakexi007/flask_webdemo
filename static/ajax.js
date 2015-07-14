@@ -13,8 +13,13 @@ function mModel(ip,n_ip,status) {
 function modModel() {
     var ip = $('#mip').val();
     //var status = $('#mstatus').val();
-    var status = $('#xx option:selected') .val();
-    window.location.href = "/mod?ip=" + ip + "&status=" + status;
+    var status = $('#xx option:selected').val();
+    if (status == '') {
+        alert("请选择机器状态 或者 取消当前操作！！！");
+    }
+    if (status != '') {
+        window.location.href = "/mod?ip=" + ip + "&status=" + status;
+    }
 }
 
 //添加
