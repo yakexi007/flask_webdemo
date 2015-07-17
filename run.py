@@ -6,7 +6,6 @@ from app1.demo import app1
 from app2.login import app2
 
 app = Flask(__name__)
-app.config.from_object('config')
 app.debug = True
 app.register_blueprint(app1)
 app.register_blueprint(app2)

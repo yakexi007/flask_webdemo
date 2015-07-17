@@ -1,0 +1,12 @@
+<!-- extend from base layout -->
+{% extends "base.html" %}
+
+{% block html %}
+
+<h1>Sign In</h1>
+        <form action="/auth/" method="post">
+            <p><input type=text name=username>
+            <p><input type=password name=password>
+            <p><input type=submit value=Login>
+        </form>
+{% endblock %}

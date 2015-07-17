@@ -4,14 +4,8 @@
 {% block html %}
 
 <h1>Sign In</h1>
-<form action="" method="post" name="login">
-    {{form.hidden_tag()}}
-    <p>
-        Please enter your OpenID:<br>
-        {{form.openid(size=80)}}<br>
-    </p>
-    <p>{{form.remember_me}} Remember Me</p>
-
-    <p><input type="submit" value="Sign In"></p>
-</form>
+        <form action="/login/" method="post">
+            <p><input type=text name=username>
+            <p><input type=submit value=Login>
+        </form>
 {% endblock %}
