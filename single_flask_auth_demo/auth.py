@@ -14,7 +14,7 @@ def flask_auth(func):
     装饰器必须放在route装饰器下面
     '''
     # 定义包装函数
-    @wraps(func)
+    @wraps(func) #消除自定义装饰器 改变原函数属性的副作用
     def wrapper(*args, **kargs):
         try:
             if func.__name__ == "index":
