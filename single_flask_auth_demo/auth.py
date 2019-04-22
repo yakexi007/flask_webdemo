@@ -5,7 +5,7 @@ from flask import request,session,redirect
 from functools import wraps
 import hashlib,MySQLdb
 
-conn = MySQLdb.connect(host='10.16.48.81',user='root',passwd='123',db='test',charset='utf8')
+conn = MySQLdb.connect(host='',user='',passwd='',db='test',charset='utf8')
 cur = conn.cursor()
 
 def flask_auth(func):
