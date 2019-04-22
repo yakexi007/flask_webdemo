@@ -4,7 +4,7 @@ __author__ = "zhangjun"
 
 import MySQLdb
 
-conn = MySQLdb.connect(host='10.16.48.81',user='root',passwd='123',db='weblog',charset='utf8')
+conn = MySQLdb.connect(host='1',user='',passwd='',db='weblog',charset='utf8')
 cur = conn.cursor()
 
 def getData(num=0):
